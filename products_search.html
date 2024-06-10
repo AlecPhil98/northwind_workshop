@@ -11,17 +11,34 @@
 
 <body>
 
-<h1>Choose Search By</h1>
+    <h1>Choose Search By</h1>
 
-<select id="dropDown">View All 
-    <option value="selectOne"> Select One </option>
-    <option value="category"> Select Category</option>
-    <option value="viewall">View all </option>
-</select>
+    <select id="dropDown">
+        <option value="selectOne"> Select One </option>
+        <option value="category"> Select Category</option>
+        <option value="viewall">View all </option>
+    </select>
 
-<table>
-    <tbody id="searchBody"></tbody>
-</table>
+    <select id="secondCategory">
+        <option value="Beverages">Beverages</option>
+        <option value="Condiments">Condiments</option>
+        <option value="Confections">Confections</option>
+        <option value="Dairy Products">Dairy Products</option>
+        <option value="Grains/Cereals">Grains/Cereals</option>
+        <option value="Meat/Poultry">Meat/Poultry</option>
+        <option value="Produce">Produce</option>
+        <option value="Seafood">Seafood</option>
+
+    </select>
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Unit Price</th>
+        </thead>
+        <tbody id="searchBody"></tbody>
+    </table>
 
 
 

@@ -7,9 +7,33 @@ window.onload = () => {
 
     let showSearchAll = document.querySelector("#dropDown")
     showSearchAll.addEventListener("change", populateSearchPage)
-    
+
+    hideElement("#secondCategory")
 
     
+
+}
+
+function hideShowCategoryDrop(event) {
+
+    if (event.target.value === "secondCategory") { 
+        showElement("#secondCategory")
+    }else{
+        hideElement("#secondCategory")
+    }
+
+
+}
+
+function hideElement(SomeId) {
+        let el = document.querySelector(SomeId)
+        el.syle.display = "none";
+}
+
+function showElement(SomeId){
+
+    let el = document.querySelector(SomeId);
+    el.style.display = "block";
 }
 
 async function populateSearchPage() {
@@ -24,7 +48,7 @@ async function populateSearchPage() {
     });
 
 }
-
+// builds the table row with hyperlinks to the details of said product
 function buildRow(productTableBody, productData) {
 
     let row = productTableBody.insertRow();
@@ -38,25 +62,25 @@ function buildRow(productTableBody, productData) {
     let unitPriceCell = row.insertCell();
     unitPriceCell.innerHTML = productData.unitPrice
 
-    let unitsInStockCell = row.insertCell();
-    unitsInStockCell.innerHTML = productData.unitsInStock
+    // let unitsInStockCell = row.insertCell();
+    // unitsInStockCell.innerHTML = productData.unitsInStock
 
-    let categoryIdCell = row.insertCell();
-    categoryIdCell.innerHTML = productData.categoryId
+    // let categoryIdCell = row.insertCell();
+    // categoryIdCell.innerHTML = productData.categoryId
 
-    let supplierCell = row.insertCell();
-    supplierCell.innerHTML = productData.supplier
+    // let supplierCell = row.insertCell();
+    // supplierCell.innerHTML = productData.supplier
 
-    let discontinuedCell = row.insertCell();
-    discontinuedCell.innerHTML = productData.discontinued
+    // let discontinuedCell = row.insertCell();
+    // discontinuedCell.innerHTML = productData.discontinued
 
-    // let prodcutDetailsCell = row.innerHTML();
-    // prodcutDetailsCell.innerHTML`
-    // <a href="./product_detail.html?productid=${productData.id}> Show Details </a>
-    // `
+    let prodcutDetailsCell = row.insertCell();
+    prodcutDetailsCell.innerHTML = `
+    <a href="./product_details.html?productid=${productData.productId}"> Show Details </a>
+    `
 
 }
-
+// grabs all the data of the products
 async function getProductDetails() {
 
     try {
